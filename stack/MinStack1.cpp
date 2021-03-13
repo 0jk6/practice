@@ -1,7 +1,6 @@
 //Min Stack using two stacks
 #include <iostream>
 #include <stack>
-#include <limits.h>
 
 using namespace std;
 
@@ -10,12 +9,17 @@ public:
 
 	stack<int> s; //to store elements
 	stack<int> m; //to store minimum elements
-	int me = INT_MAX;
+	int me;
 	MinStack(){
 		cout << "MinStack initialized\n";
 	}
 
 	void push(int data){
+		if(s.size()==0){
+			me = data;
+			s.push(data);
+			return;
+		}
 		if(data < me){
 			me = data;
 			m.push(me);
