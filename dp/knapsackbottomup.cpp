@@ -22,7 +22,7 @@ int knapsack(int wt[], int val[], int W, int n){
 		for(int j=1; j<W+1; j++){
 			//we have two choices now
 			//decide whether to include it or not
-			if(wt[i-1] <= W){
+			if(wt[i-1] <= j){
 				dp[i][j] = max(val[i-1]+dp[i-1][j-wt[i-1]], dp[i-1][j]);
 			}
 			else{
