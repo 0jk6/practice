@@ -8,10 +8,15 @@ using namespace std;
 int subsetsum(int arr[], int sum, int n){
 	//initialized dp table
 	bool dp[n+1][sum+1];
-	for(int i=0; i<n+1; i++)
-		dp[i][0] = true;
-	for(int i=0; i<sum+1; i++)
-		dp[0][i] = false;
+	//fill up the dp table's first row and column
+	for(int i=0; i<n+1; i++){
+		for(int j=0; j<sum+1; j++){
+			if(i==0)
+				dp[i][j]=0;
+			if(j==0)
+				dp[i][j]=1;
+		}
+	}
 
 	//process the values
 	for(int i=1; i<n+1; i++){
