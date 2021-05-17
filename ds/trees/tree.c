@@ -20,8 +20,9 @@ struct bst *createNewNode(int data){
 struct bst *insert(struct bst *root, int data){
 	if(root==NULL){
 		root = createNewNode(data);
+		return root;
 	}
-	else if(data<=root->data){
+	if(data<=root->data){
 		root->left = insert(root->left,data);
 	}
 	else{
