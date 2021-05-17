@@ -1,1 +1,1 @@
-practice problems for interview preperation, most of these are from Aditya Verma's youtube channel.
+practice problems for interview preperation.
