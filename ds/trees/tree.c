@@ -31,12 +31,11 @@ struct bst *insert(struct bst *root, int data){
 	return root;
 }
 
-struct bst* min(struct bst *root){
-	struct bst *temp = root;
-	while(temp->left!=NULL){
-		temp = temp->left;
+int min(struct bst *root){
+	while(root->left!=NULL){
+		root = root->left;
 	}
-	return temp;
+	return root->val;
 }
 
 struct bst *delete(struct bst *root, int data){
@@ -49,30 +48,16 @@ struct bst *delete(struct bst *root, int data){
 		//search the right sub tree
 		root->right = delete(root->right, data);
 	else{
-		//if found then there will be following cases
-		//Case 1: No child
-		if(root->left == NULL && root->right == NULL){
-			free(root);
+		if(root->left == NULL){
+			return root->right;
 		}
-		//Case 2: One child
-		else if(root->left == NULL){
-			struct bst *temp = root;
-			root = root->right;
-			free(temp);
-		}
-		else if(root->right == NULL){
-			struct bst *temp = root;
-			root = root->left;
-			free(temp);
+		else if(root->right == NULL)
+			return root->left;
 		}
 		//Case 3: Two childs
 		else{
-			//find the minimum element in right subtree
-			struct bst *temp = min(root->right);
-			//assign the minimum value to this new root;
-			root->data = temp->data;
-			//now delete this minimum value in the subtree
-			root->right = delete(root->right, data);
+			root->val = min(root->right);
+			root->right = delet(root->right, root->val);
 		}
 	}
 	return root;
