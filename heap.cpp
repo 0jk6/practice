@@ -104,13 +104,7 @@ int MaxHeap::extractMax(){
 
 
 int main(){
-    //create a pointer
-    /*MaxHeap* PriorityQueue = new MaxHeap();
-
-    if(PriorityQueue->isEmpty())
-        cout << "Yes, this is the correct answer\n";
-    else
-        cout << "Uh-oh, there's something wrong\n";
+    MaxHeap* PriorityQueue = new MaxHeap();
 
     PriorityQueue->insertItem(10);
     PriorityQueue->insertItem(120);
@@ -119,10 +113,10 @@ int main(){
     PriorityQueue->insertItem(5);
 
     cout << PriorityQueue->getMax() << "\n";
+    
     PriorityQueue->extractMax();
-    cout << PriorityQueue->getMax() << "\n";*/
-
-    MaxHeap pq;
+    
+    cout << PriorityQueue->getMax() << "\n";
 
     return 0;
 }
